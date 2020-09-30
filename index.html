@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<!-- Título da Página -->
+	<title>Criar Link Whatsapp</title>
+
+
+	<!-- Meta Tags -->
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="description" content="Crie Seu Link Para Whatsapp em Segundos. Gere com a melhor API para Whatsapp.">
+
+
+	<!-- Chamar o CSS -->
+	<link rel="icon" href="imagens/favicon.png">
+	<link rel="stylesheet" type="text/css" href="style/index.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+	<link rel="canonical" href="https://www.criarlinkwhatsapp.com/">
+
+
+</head>
+
+<body>
+	<!-- Sessão que vai Gerar o Link -->
+	<section id="Linkar">
+		<img alt="Whatsapp API" style="width: 200px; margin-top: 5em;" src="imagens/logo.png">
+
+		<!-- Divisoria para Chamar Função de Gerar o Link -->
+		<div id="antes">
+			<h1> Gere seu Link para Whatsapp! </h1>
+
+			
+				<form>
+					<label for="placa">Digite seu Número abaixo: </label> <br>
+  					<input type="tel" name="telefone" id="telefone" placeholder="(DD) XXXXX-XXXX">
+  					<br>
+  					<label for="placa">Digite o Comentário Inicial(opcional): </label> <br>
+  					<input type="text" name="comentario" id="comentario" placeholder="Seu Comentário">
+  					
+				</form>
+
+				<button onclick="GerarCode()">Gerar o Link</button>
+		</div>
+
+		<!-- Divisoria para Gerar Outro Link -->
+		<div id="depois" style="display: none;">
+			<h1> Gerador de Link para Whatsapp! </h1>
+
+			
+				<label><b>Link Gerado</b></label>
+				<br>
+
+				<input type="text" id="codigo" placeholder="Seu Código Aqui">
+				<br>
+
+				<button onclick="OutroCode()">Gerar Outro</button>
+				<!-- Deixar o Botão de Copiar a Direita para melhor experiência do usuário -->
+				<button onclick="CopyCode()">Copiar Link</button>
+		</div>
+	</section>
+
+	<!-- Sessão de Informações -->
+	<section id="Infos">
+
+		<!-- Celular GIF -->
+		<img id="imagem" alt="Link Whatsapp" src="imagens/celular.gif">
+		
+		<!-- Pra que Serve? -->
+		<details>
+			<summary><b>Para que Serve o criarlinkwhatsapp.com?</b></summary>
+
+			<p>O criarlikwhatsapp serve para você ter um toque profissional com seu próprio link personalizado.</p>
+		</details>
+
+		<!-- Como Funciona? -->
+		<details>
+			<summary><b>Como Funciona?</b></summary>
+
+			<p>
+				Insira o nº do WhatsApp Ex: 75 974512456
+				<br>
+				Clique em GERAR O LINK
+				<br>
+				Copie o link e compartilhe
+				<br>
+				<br>
+				Antes de usar, faça o teste.
+			</p>
+		</details>
+
+		<!-- Bio do Instagram -->
+		<details>
+			<summary><b>Como Colocar na Bio do Instagram?</b></summary>
+
+			<p>
+				Copie o link e vá para seu perfil no Instagram
+				<br>
+				Clique em "Editar Perfil" 
+				<br>
+				Cole o link no espaço "Site"
+				<br>
+				Salve e pronto!
+			</p>
+		</details>
+
+		<details>
+			<summary><b>Links Externos:</b></summary>
+
+			<p>
+				<a href="https://www.whatsapp.com/">Whatsapp Oficial</a>
+				<br>				
+				<a href="https://web.whatsapp.com/">Web Whatsapp</a>
+			</p>
+		</details>
+		
+		
+	</section>
+
+	<!-- Sucesso ao Copiar -->
+	<div id="snackbar">Link Copiado!</div>
+	
+	<!-- Rodapé -->
+	<footer>
+		<span><a style="color: white; text-decoration: none;" href="https://www.buymeacoffee.com/fabiodevbr">www.criarlinkwhatsapp.com</a></span>
+	</footer>
+
+	<!-- SCRIPTS DA PÁGINA -->
+	<script type="text/javascript">
+		//GERAR LINK PARA WHATSAPP
+		function GerarCode() {
+			//PEGAR DADOS DE TELEFONE E COMENTÁRIO
+			var code = document.getElementById('telefone').value;
+			var comment = document.getElementById('comentario').value;
+
+			//ALERTA EM CASO DE NÃO DIGITAR O NÚMERO
+			if (code == "") {
+				window.alert("Digite Algum Número")
+			} else {
+				
+				if (comment == "") {
+					//SEM COMENTÁRIO
+					document.getElementById('antes').style.display='none';
+					document.getElementById('depois').style.display='block';
+					document.getElementById('codigo').value = "https://api.whatsapp.com/send?phone=55" + code.replace(/[^\d]+/g,'');
+					document.getElementById('telefone').value = "";
+				} else {
+					//COM COMENTÁRIO
+					document.getElementById('antes').style.display='none';
+					document.getElementById('depois').style.display='block';
+					document.getElementById('codigo').value = "https://api.whatsapp.com/send?phone=55" + code.replace(/[^\d]+/g,'') + "&text=" + comment;
+					document.getElementById('telefone').value = "";
+					document.getElementById('comentario').value = "";
+				}
+				
+			}
+			
+
+		}
+
+		//GERAR OUTRO LINK
+		function OutroCode() {
+			document.getElementById('antes').style.display='block';
+				document.getElementById('depois').style.display='none';
+
+
+		}
+
+		//COPIAR CÓDIGO
+		function CopyCode() {
+			//Seleciona a Input com o Link
+            const inputTest = document.querySelector("#codigo");
+            
+            //Seleciona o Texto da Input com o Link
+            inputTest.select();
+
+            //Executa o comando de Copiar
+            document.execCommand('copy');
+
+            //Seleciona toast de confirmação
+ 			 var x = document.getElementById("snackbar");
+
+			  //Mostra a toast de confirmação
+			  x.className = "show";
+
+			  //Depois de 3 segundos apaga a toast de confirmação
+			  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+					}
+	</script>
+
+	<!-- MASCARA DA INPUT DE TELEFONE -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	    <script>
+	    $(document).ready(function () { 
+	        var $seuCampoTelefone = $("#telefone");
+	        $seuCampoTelefone.mask('(00) 0000#-0000', {reverse: false});
+	    });
+	</script>
+</body>
+</html>

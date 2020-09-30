@@ -1,0 +1,140 @@
+body {
+	text-align: center;
+	margin: 0 0 0 0;
+	background: #1ebea5;
+	font-family: 'Roboto', sans-serif;
+
+}
+
+input {
+	border: none;
+	padding: 1em 2em 1em 2em;
+	width: auto;
+	border-radius: 20px;
+	margin-bottom: 1em;
+}
+
+button {
+	background-color: #107a69;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px #888888;
+
+}
+
+label {
+	color: #107a69;
+
+}
+
+footer {
+	background-color: #273443;
+	text-align: center;
+	color: #a9aea9;
+	padding: 2em;
+
+}
+
+section#Linkar {
+	color: white;
+	margin-bottom: 300px;
+}
+
+section#Infos {
+	background: white;
+	text-align: left;
+	padding-left: 4em;
+	padding-top: 2em;
+	padding-bottom: 2em;
+	min-height: 300px;
+	max-height: auto;
+}
+
+section#Infos details {
+	background-color: #d0e9ea;
+	margin-bottom: 1em;
+	padding: 1em;
+	width: 300px;
+}
+
+#imagem {
+	height: 500px;
+	position: relative;
+	margin-top: -12em;
+	float: right;
+	margin-right: 20%;
+}
+
+#codigo {
+	width: 300px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  	section#Linkar {
+		margin-top: 10%;
+
+	}
+
+	section#Infos {
+		text-align: center;
+		height: auto;
+
+	}
+
+	#imagem {
+		margin-top: -10em;
+		float: none;
+		margin-right: none;
+	}
+}
+
+
+/*Tutorial Pego de: https://www.w3schools.com/howto/howto_js_snackbar.asp; */
+#snackbar {
+  visibility: hidden; 
+  min-width: 250px; 
+  margin-left: -125px;
+  background-color: #333; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 2px; 
+  padding: 16px; 
+  position: fixed; 
+  z-index: 1; 
+  left: 50%; 
+  top: 30px; 
+}
+
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
