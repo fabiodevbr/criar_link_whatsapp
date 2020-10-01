@@ -19,6 +19,8 @@
 
 	<link rel="canonical" href="https://www.criarlinkwhatsapp.com/">
 
+	<script data-ad-client="ca-pub-3472328926110548" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 
 </head>
 
@@ -132,7 +134,7 @@
 		function GerarCode() {
 			//PEGAR DADOS DE TELEFONE E COMENTÁRIO
 			var code = document.getElementById('telefone').value;
-			var comment = document.getElementById('comentario').value;
+			var comment = window.encodeURIComponent(document.getElementById('comentario').value);
 
 			//ALERTA EM CASO DE NÃO DIGITAR O NÚMERO
 			if (code == "") {
